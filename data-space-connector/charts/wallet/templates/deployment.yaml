@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wallet-ssikit
+  labels:
+    app: wallet-ssikit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wallet-ssikit
+  template:
+    metadata:
+      labels:
+        app: wallet-ssikit
+    spec:
+      containers:
+      - name: ssi-core-dev-env
+        image: pablomarrtinez/wallet:v3.1.6
+        command: ["/bin/sh", "-c"]
+        args: 
+          - tail -f
+        env:
+        - name: ISSUER_PORT
+          value: "32000"
+        - name: VERIFIER_PORT
+          value: "32001"
+        - name: WALLET_PORT
+          value: "32002"
+        - name: PEER_ENDPOINT
+          value: "192.168.49.1"
+        - name: MODE
+          value: "Default"
+        - name: LOCAL
+          value: "true"
+        ports:
+        - containerPort: 32000
+        - containerPort: 32001
+        - containerPort: 32002

@@ -1,0 +1,6 @@
+dependencies:
+- name: activation-service
+  repository: https://i4trust.github.io/helm-charts
+  version: 2.2.1
+digest: sha256:67d7f7f3c751f89273f11c100695d06adc952d846ee208b2b6de5128028b4b29
+generated: "2023-12-20T12:30:29.345423399Z"

@@ -1,0 +1,6 @@
+dependencies:
+- name: dsba-pdp
+  repository: https://fiware.github.io/helm-charts
+  version: 0.0.16
+digest: sha256:75832f5ddd3617a9954db23e0864262df82242f82fdc7c49da19d68664100697
+generated: "2023-12-20T12:30:30.373721783Z"

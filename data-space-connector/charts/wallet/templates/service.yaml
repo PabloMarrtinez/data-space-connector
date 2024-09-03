@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wallet-ssikit-service
+spec:
+  type: ClusterIP
+  ports:
+    - name: https-issuer 
+      port: 32000
+      targetPort: 32000
+    - name: https-verifier 
+      port: 32001
+      targetPort: 32001
+    - name: https-wallet 
+      port: 32002
+      targetPort: 32002
+  selector:
+    app: wallet-ssikit
