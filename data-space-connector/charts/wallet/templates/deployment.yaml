@@ -16,10 +16,10 @@ spec:
     spec:
       containers:
       - name: ssi-core-dev-env
-        image: pablomarrtinez/wallet:v3.2.2
+        image: pablomarrtinez/wallet:v3.2.3
         command: ["/bin/sh", "-c"]
         args: 
-          - tail -f
+          - keytool -importcert -file /app/cert/cert/cert.crt -alias cert -keystore /etc/tls/tls.crt -storepass changeit -noprompt && /app/ssikit.sh fullApi
         env:
         - name: ISSUER_PORT
           value: "32000"
