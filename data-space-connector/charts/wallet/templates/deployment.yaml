@@ -37,3 +37,11 @@ spec:
         - containerPort: 32000
         - containerPort: 32001
         - containerPort: 32002
+        volumeMounts:
+        - name: tls-cert
+          mountPath: "/etc/tls"
+          readOnly: true
+      volumes:
+      - name: tls-cert
+        secret:
+          secretName: wallet-cert
