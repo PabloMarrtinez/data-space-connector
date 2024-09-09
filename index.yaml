@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   data-space-connector:
   - apiVersion: v2
-    created: "2024-09-09T10:05:01.868002568+02:00"
+    created: "2024-09-09T10:07:10.417298986+02:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -78,6 +78,6 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - data-space-connector-0.10.2.tgz
+    - data-space-connector-0.10.3.tgz
     version: 0.10.3
-generated: "2024-09-09T10:05:01.845276575+02:00"
+generated: "2024-09-09T10:07:10.393770262+02:00"
