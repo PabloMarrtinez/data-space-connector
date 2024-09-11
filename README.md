@@ -7,5 +7,5 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt
 Lo guardo como secreto:
 
 ```bash
-kubectl create secret tls wallet-cert --cert=tls.crt --key=tls.key
+kubectl create secret tls wallet-cert --cert=tls.crt --key=tls.key -n ips
 ```
