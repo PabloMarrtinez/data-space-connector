@@ -32,11 +32,11 @@ deployment:
   ## configuration of the image to be used
   image:
     # -- image name
-    repository: quay.io/fiware/vcverifier
+    repository: pablomarrtinez/verifier
     # -- tag of the image to be used
-    tag: 2.0.1
+    tag: v0.0.1
     # -- specification of the image pull policy
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
   # -- port to run the container at
   port: 3000
   # -- configuration for server
