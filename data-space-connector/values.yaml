@@ -997,7 +997,7 @@ verifier:
   
       image:
         repository: pablomarrtinez/verifier
-        tag: v0.0.1
+        tag: 4.0.0
         pullPolicy: Always
   
       # Logging
