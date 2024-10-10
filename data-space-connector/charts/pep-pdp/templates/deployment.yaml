@@ -18,7 +18,7 @@ spec:
       containers:
         - name: {{ .Release.Name }}
           image: pablomarrtinez/pdp:0.0.1
-          imagePullPolicy: {{ .Values.peppdp.pullPolicy }}
+          imagePullPolicy: {{ .Values.pdp.pullPolicy }}
           ports:
             - containerPort: {{ .Values.pdp.containerPort }}
           env:
