@@ -17,11 +17,11 @@ spec:
       containers:
         - name: {{ .Release.Name }}
           image: pablomarrtinez/pdp:0.0.1
-          imagePullPolicy: {{ .Values.pdp.pullPolicy }}
+          imagePullPolicy: {{ .Values.pullPolicy }}
           ports:
-            - containerPort: {{ .Values.pdp.containerPort }}
+            - containerPort: {{ .Values.containerPort }}
           env:
-            {{- range .Values.pdp.env }}
+            {{- range .Values.env }}
             - name: {{ .name }}
               value: {{ .value | quote }}
             {{- end }}
