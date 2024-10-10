@@ -1043,7 +1043,7 @@ wallet:
     LOCAL: true
 
 
-peppdp:
+pdp:
   image: pablomarrtinez/pdp
   imageTag: 0.0.1
   pullPolicy: Always
