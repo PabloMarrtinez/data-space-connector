@@ -30,7 +30,7 @@ applications:
     helm_values:
     - values.yaml
 
-  - name: pep-pdp
+  - name: pdp
     enabled: true
     source_path: applications/pep-pdp
     source_ref: *branch
