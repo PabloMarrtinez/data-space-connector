@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: verifierUmu-ingress
+  name: verifierumu-ingress
 spec:
   rules:
     - host: verifier.tango.io
@@ -12,7 +12,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: verifierUmu-service
+                name: verifierumu-service
                 port:
                   number: 443
   tls:

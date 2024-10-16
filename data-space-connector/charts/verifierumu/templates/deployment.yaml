@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "verifierUmu.fullname" . }}
+  name: {{ include "verifierumu.fullname" . }}
   labels:
-    component: verifierUmu
+    component: verifierumu
 spec:
   replicas: {{ .Values.replicaCount }}
   revisionHistoryLimit: {{ .Values.revisionHistoryLimit }}
@@ -13,37 +13,37 @@ spec:
     {{- end }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "verifierUmu.name" . }}
+      app.kubernetes.io/name: {{ include "verifierumu.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
-      component: verifierUmu
+      component: verifierumu
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "verifierUmu.name" . }}
+        app.kubernetes.io/name: {{ include "verifierumu.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
-        component: verifierUmu
+        component: verifierumu
     spec:
       containers:
-        - name: verifierUmu
+        - name: verifierumu
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command: ["/bin/sh", "-c"]
           args:
-            - {{ .Values.verifierUmu.args | quote }}
+            - {{ .Values.verifierumu.args | quote }}
           env:
             {{- range $key, $value := .Values.commonEnvVars }}
             - name: {{ $key }}
               value: "{{ $value }}"
             {{- end }}
-            {{- range $envVar := .Values.verifierUmu.envVars }}
+            {{- range $envVar := .Values.verifierumu.envVars }}
             - name: {{ $envVar.name }}
               value: "{{ $envVar.value }}"
             {{- end }}
           ports:
             - containerPort: {{ .Values.commonEnvVars.VERIFIER_PORT_HTTP }}
-              name: verifierUmu-http
+              name: verifierumu-http
             - containerPort: {{ .Values.commonEnvVars.VERIFIER_PORT_HTTPS }}
-              name: verifierUmu-https
+              name: verifierumu-https
           volumeMounts:
             {{- range $mount := .Values.volumeMounts }}
             - name: {{ $mount.name }}

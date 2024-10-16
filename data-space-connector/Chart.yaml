@@ -64,9 +64,9 @@ dependencies:
   name: issuer
   repository: file://./charts/issuer
   version: 0.1.0
-- condition: verifierUmu.deploymentEnabled
-  name: verifierUmu
-  repository: file://./charts/verifierUmu
+- condition: verifierumu.deploymentEnabled
+  name: verifierumu
+  repository: file://./charts/verifierumu
   version: 0.1.0
 - condition: wallet.deploymentEnabled
   name: wallet
@@ -80,4 +80,4 @@ maintainers:
   name: Stefan Wiedemann
 name: data-space-connector
 type: application
-version: 5.1.1
+version: 5.1.2

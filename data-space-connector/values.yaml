@@ -30,9 +30,9 @@ applications:
     helm_values:
     - values.yaml
 
-  - name: verifierUmu
+  - name: verifierumu
     enabled: true
-    source_path: applications/verifierUmu
+    source_path: applications/verifierumu
     source_ref: *branch
     destination: *destination
     helm_values:

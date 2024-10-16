@@ -23,9 +23,9 @@ commonEnvVars:
   LOCAL: "true"
   PEER_ENDPOINT: "peer0.org1.example.com"
 
-verifierUmu:
+verifierumu:
   deploymentEnabled: true
-  name: verifierUmu
+  name: verifierumu
   args: >
     keytool -importcert -file /etc/tls/tls.crt -alias tls -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt && /app/ssikit.sh verifier
   envVars:

@@ -2,11 +2,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: verifierUmu-service
+  name: verifierumu-service
   labels:
-    app.kubernetes.io/name: {{ include "verifierUmu.name" . }}
+    app.kubernetes.io/name: {{ include "verifierumu.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
-    component: verifierUmu
+    component: verifierumu
 spec:
   type: ClusterIP
   ports:
@@ -14,6 +14,6 @@ spec:
       port: 443
       targetPort: {{ .Values.commonEnvVars.VERIFIER_PORT_HTTPS }}
   selector:
-    app.kubernetes.io/name: {{ include "verifierUmu.name" . }}
+    app.kubernetes.io/name: {{ include "verifierumu.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
-    component: verifierUmu
+    component: verifierumu
