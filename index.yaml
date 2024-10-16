@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   data-space-connector:
   - apiVersion: v2
-    created: "2024-10-16T13:35:21.409344863+01:00"
+    created: "2024-10-16T13:43:01.698528163+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -77,7 +77,7 @@ entries:
       repository: file://./charts/wallet
       version: 0.1.0
     description: Helm chart to deploy the FIWARE Data Space Connector
-    digest: cd58f06fb7b60626616710a30e2131f3a511e32d794313e2fab580bc375c82fb
+    digest: 54d199d596e4a79e66e6e206507d4fbc14166b7959e363d972c355f7ce504749
     maintainers:
     - email: dennis.wendland@fiware.org
       name: Dennis Wendland
@@ -86,10 +86,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - data-space-connector-5.1.5.tgz
-    version: 5.1.5
+    - data-space-connector-5.1.6.tgz
+    version: 5.1.6
   - apiVersion: v2
-    created: "2024-10-16T13:35:21.386019625+01:00"
+    created: "2024-10-16T13:43:01.674584452+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -168,7 +168,7 @@ entries:
     - data-space-connector-4.0.8.tgz
     version: 4.0.8
   - apiVersion: v2
-    created: "2024-10-16T13:35:21.362831796+01:00"
+    created: "2024-10-16T13:43:01.651101605+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -247,7 +247,7 @@ entries:
     - data-space-connector-3.4.1.tgz
     version: 3.4.1
   - apiVersion: v2
-    created: "2024-10-16T13:35:21.338361795+01:00"
+    created: "2024-10-16T13:43:01.627394681+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -325,4 +325,4 @@ entries:
     urls:
     - data-space-connector-3.4.0.tgz
     version: 3.4.0
-generated: "2024-10-16T13:35:21.310018695+01:00"
+generated: "2024-10-16T13:43:01.599542252+01:00"
