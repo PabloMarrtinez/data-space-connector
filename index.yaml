@@ -2,7 +2,94 @@ apiVersion: v1
 entries:
   data-space-connector:
   - apiVersion: v2
-    created: "2024-10-16T08:48:36.655358148+01:00"
+    created: "2024-10-16T08:56:01.115584558+01:00"
+    dependencies:
+    - condition: keyrock.deploymentEnabled
+      name: keyrock
+      repository: file://./charts/keyrock
+      version: 0.7.4
+    - condition: vcwaltid.deploymentEnabled
+      name: vcwaltid
+      repository: file://./charts/vcwaltid
+      version: 0.0.17
+    - condition: mysql.deploymentEnabled
+      name: mysql
+      repository: file://./charts/mysql
+      version: 9.4.4
+    - condition: dsba-pdp.deploymentEnabled
+      name: dsba-pdp
+      repository: file://./charts/dsba-pdp
+      version: 0.0.16
+    - condition: tm-forum-api.deploymentEnabled
+      name: tm-forum-api
+      repository: file://./charts/tm-forum-api
+      version: 0.0.4
+    - condition: orion-ld.deploymentEnabled
+      name: orion-ld
+      repository: file://./charts/orion-ld
+      version: 1.2.6
+    - condition: activation-service.deploymentEnabled
+      name: activation-service
+      repository: file://./charts/activation-service
+      version: 2.2.1
+    - condition: kong.deploymentEnabled
+      name: kong
+      repository: file://./charts/kong
+      version: 2.8.0
+    - condition: mongodb.deploymentEnabled
+      name: mongodb
+      repository: file://./charts/mongodb
+      version: 0.1.0
+    - condition: contract-management.deploymentEnabled
+      name: contract-management
+      repository: file://./charts/contract-management
+      version: 0.5.0
+    - condition: keycloak.deploymentEnabled
+      name: keycloak
+      repository: file://./charts/keycloak
+      version: 13.0.4
+    - condition: postgres.deploymentEnabled
+      name: postgres
+      repository: file://./charts/postgres
+      version: 12.1.13
+    - condition: trusted-issuers-list.deploymentEnabled
+      name: trusted-issuers-list
+      repository: file://./charts/trusted-issuers-list
+      version: 0.5.3
+    - condition: verifier.deploymentEnabled
+      name: verifier
+      repository: file://./charts/verifier
+      version: 1.0.9
+    - condition: credentials-config-service.deploymentEnabled
+      name: credentials-config-service
+      repository: file://./charts/credentials-config-service
+      version: 0.0.4
+    - condition: issuer.deploymentEnabled
+      name: issuer
+      repository: file://./charts/issuer
+      version: 0.1.0
+    - condition: verifierUmu.deploymentEnabled
+      name: verifierUmu
+      repository: file://./charts/verifierUmu
+      version: 0.1.0
+    - condition: wallet.deploymentEnabled
+      name: wallet
+      repository: file://./charts/wallet
+      version: 0.1.0
+    description: Helm chart to deploy the FIWARE Data Space Connector
+    digest: aa33456678d422f54dd7947b9fcc0f9f732b026176c460a5ce51a5dbd6cd87bd
+    maintainers:
+    - email: dennis.wendland@fiware.org
+      name: Dennis Wendland
+    - email: stefan.wiedemann@fiware.org
+      name: Stefan Wiedemann
+    name: data-space-connector
+    type: application
+    urls:
+    - data-space-connector-5.0.1.tgz
+    version: 5.0.1
+  - apiVersion: v2
+    created: "2024-10-16T08:56:01.092210873+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -89,7 +176,7 @@ entries:
     - data-space-connector-5.0.0.tgz
     version: 5.0.0
   - apiVersion: v2
-    created: "2024-10-16T08:48:36.627604922+01:00"
+    created: "2024-10-16T08:56:01.068118459+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -168,7 +255,7 @@ entries:
     - data-space-connector-4.0.8.tgz
     version: 4.0.8
   - apiVersion: v2
-    created: "2024-10-16T08:48:36.604938141+01:00"
+    created: "2024-10-16T08:56:01.044558808+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -247,7 +334,7 @@ entries:
     - data-space-connector-3.4.1.tgz
     version: 3.4.1
   - apiVersion: v2
-    created: "2024-10-16T08:48:36.58050781+01:00"
+    created: "2024-10-16T08:56:01.019927022+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -325,4 +412,4 @@ entries:
     urls:
     - data-space-connector-3.4.0.tgz
     version: 3.4.0
-generated: "2024-10-16T08:48:36.553490027+01:00"
+generated: "2024-10-16T08:56:00.992653987+01:00"
