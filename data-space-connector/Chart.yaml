@@ -64,14 +64,7 @@ dependencies:
   name: issuer
   repository: file://./charts/issuer
   version: 0.1.0
-- condition: verifierUmu.deploymentEnabled
-  name: verifierUmu
-  repository: file://./charts/verifierUmu
-  version: 0.1.0
-- condition: wallet.deploymentEnabled
-  name: wallet
-  repository: file://./charts/wallet
-  version: 0.1.0
+
 description: Helm chart to deploy the FIWARE Data Space Connector
 maintainers:
 - email: dennis.wendland@fiware.org
@@ -80,4 +73,4 @@ maintainers:
   name: Stefan Wiedemann
 name: data-space-connector
 type: application
-version: 5.0.8
+version: 5.0.9
