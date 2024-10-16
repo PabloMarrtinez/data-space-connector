@@ -13,12 +13,12 @@ image:
 
 ## Variables de entorno comunes a todos los contenedores
 commonEnvVars:
-  ISSUER_PORT_HTTP: "32100"
-  ISSUER_PORT_HTTPS: "32000"
-  VERIFIER_PORT_HTTP: "32101"
-  VERIFIER_PORT_HTTPS: "32001"
-  WALLET_PORT_HTTP: "32102"
-  WALLET_PORT_HTTPS: "32002"
+  ISSUER_PORT_HTTP: 32100
+  ISSUER_PORT_HTTPS: 32000
+  VERIFIER_PORT_HTTP: 32101
+  VERIFIER_PORT_HTTPS: 32001
+  WALLET_PORT_HTTP: 32102
+  WALLET_PORT_HTTPS: 32002
   MODE: "Default"
   LOCAL: "true"
   PEER_ENDPOINT: "peer0.org1.example.com"
@@ -35,14 +35,30 @@ wallet:
     - 32102
     - 32002
 
-## Montaje de volúmenes
-volumeMounts:
-  - name: tls-cert
-    mountPath: "/etc/tls"
-    readOnly: true
+  ## Montaje de volúmenes
+  volumeMounts:
+    - name: tls-cert
+      mountPath: "/etc/tls"
+      readOnly: true
 
-volumes:
-  - name: tls-cert
-    secret:
-      secretName: wallet-cert
+  volumes:
+    - name: tls-cert
+      secret:
+        secretName: wallet-cert
 
+## Etiquetas y anotaciones adicionales (opcional)
+additionalLabels: {}
+additionalAnnotations: {}
+
+## Configuraciones adicionales (opcional)
+serviceAccount:
+  create: false
+  name: ""
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+ingress:
+  enabled: true
+  annotations: {}

@@ -2,16 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "wallet.fullname" . }}
-  labels:
-    {{- include "wallet.labels" . | nindent 4 }}
     component: wallet
-    {{- with .Values.additionalLabels }}
-    {{- toYaml . | nindent 4 }}
-    {{- end }}
-  {{- if .Values.additionalAnnotations }}
-  annotations:
-    {{- toYaml .Values.additionalAnnotations | nindent 4 }}
-  {{- end }}
 spec:
   replicas: {{ .Values.replicaCount }}
   revisionHistoryLimit: {{ .Values.revisionHistoryLimit }}
@@ -30,15 +21,7 @@ spec:
         app.kubernetes.io/name: {{ include "wallet.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
         component: wallet
-        {{- with .Values.additionalLabels }}
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
-      {{- if .Values.additionalAnnotations }}
-      annotations:
-        {{- toYaml .Values.additionalAnnotations | nindent 8 }}
-      {{- end }}
     spec:
-      serviceAccountName: {{ include "wallet.serviceAccountName" . }}
       containers:
         - name: wallet
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -70,15 +53,3 @@ spec:
             {{- end }}
       volumes:
         {{- toYaml .Values.volumes | nindent 8 }}
-      {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.affinity }}
-      affinity:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.tolerations }}
-      tolerations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}

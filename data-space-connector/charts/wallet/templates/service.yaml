@@ -7,9 +7,6 @@ metadata:
     app.kubernetes.io/name: {{ include "wallet.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     component: wallet
-    {{- with .Values.additionalLabels }}
-    {{- toYaml . | nindent 4 }}
-    {{- end }}
 spec:
   type: ClusterIP
   ports:
@@ -20,4 +17,3 @@ spec:
     app.kubernetes.io/name: {{ include "wallet.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     component: wallet
-
