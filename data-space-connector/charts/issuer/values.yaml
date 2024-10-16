@@ -22,7 +22,10 @@ commonEnvVars:
   MODE: "Default"
   LOCAL: "true"
   PEER_ENDPOINT: "peer0.org1.example.com"
-
+  CLUSTER_PORT: 443
+  CLUSTER: "true"
+  URI_ISSUER: "issuer.tango.io"
+  
 issuer:
   deploymentEnabled: true
   name: issuer
@@ -32,9 +35,7 @@ issuer:
     keytool -importcert -file /etc/verifier-tls/tls.crt -alias verifier-tls -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt && 
     /app/ssikit.sh issuer
 
-  envVars:
-    - name: URI_ISSUER
-      value: "ssikit-issuer"
+
   ports:
     - 32100
     - 32000
