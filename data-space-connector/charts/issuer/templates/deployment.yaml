@@ -21,8 +21,6 @@ spec:
         app.kubernetes.io/name: {{ include "issuer.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
         component: issuer
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
     spec:
       containers:
         - name: issuer
