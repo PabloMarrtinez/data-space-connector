@@ -1,4 +1,4 @@
-{{- if .Values.verifierUmu.deploymentEnabled }}
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -20,4 +20,4 @@ spec:
     app.kubernetes.io/name: {{ include "verifierUmu.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     component: verifierUmu
-{{- end }}
+

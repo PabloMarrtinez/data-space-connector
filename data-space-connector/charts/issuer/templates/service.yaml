@@ -1,4 +1,4 @@
-{{- if .Values.issuer.deploymentEnabled }}
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -20,4 +20,3 @@ spec:
     app.kubernetes.io/name: {{ include "issuer.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     component: issuer
-{{- end }}

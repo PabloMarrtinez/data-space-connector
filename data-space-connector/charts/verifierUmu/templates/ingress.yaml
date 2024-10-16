@@ -1,4 +1,4 @@
-{{- if and .Values.ingress.enabled .Values.verifierUmu.deploymentEnabled }}
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -23,4 +23,3 @@ spec:
     - hosts:
         - verifier.tango.io
       secretName: verifier-cert
-{{- end }}
