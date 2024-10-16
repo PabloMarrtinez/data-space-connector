@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   data-space-connector:
   - apiVersion: v2
-    created: "2024-10-16T10:38:55.657803588+01:00"
+    created: "2024-10-16T10:39:39.286693841+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -89,7 +89,7 @@ entries:
     - data-space-connector-5.0.8.tgz
     version: 5.0.8
   - apiVersion: v2
-    created: "2024-10-16T10:38:55.633457067+01:00"
+    created: "2024-10-16T10:39:39.262803842+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -168,7 +168,7 @@ entries:
     - data-space-connector-4.0.8.tgz
     version: 4.0.8
   - apiVersion: v2
-    created: "2024-10-16T10:38:55.610021593+01:00"
+    created: "2024-10-16T10:39:39.239389256+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -247,7 +247,7 @@ entries:
     - data-space-connector-3.4.1.tgz
     version: 3.4.1
   - apiVersion: v2
-    created: "2024-10-16T10:38:55.585631863+01:00"
+    created: "2024-10-16T10:39:39.215460518+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -325,4 +325,4 @@ entries:
     urls:
     - data-space-connector-3.4.0.tgz
     version: 3.4.0
-generated: "2024-10-16T10:38:55.558496571+01:00"
+generated: "2024-10-16T10:39:39.187601254+01:00"
