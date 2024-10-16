@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   data-space-connector:
   - apiVersion: v2
-    created: "2024-10-16T10:39:39.286693841+01:00"
+    created: "2024-10-16T11:08:09.934262015+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -68,16 +68,8 @@ entries:
       name: issuer
       repository: file://./charts/issuer
       version: 0.1.0
-    - condition: verifierUmu.deploymentEnabled
-      name: verifierUmu
-      repository: file://./charts/verifierUmu
-      version: 0.1.0
-    - condition: wallet.deploymentEnabled
-      name: wallet
-      repository: file://./charts/wallet
-      version: 0.1.0
     description: Helm chart to deploy the FIWARE Data Space Connector
-    digest: 603dd2000b0739303c1608c054cc317c0f41d83e13dc842e91a706e308965519
+    digest: 708d5d3f8ef798b527ad9ef016eec9499ed58ca4a900177c5d4d24694a2bdf94
     maintainers:
     - email: dennis.wendland@fiware.org
       name: Dennis Wendland
@@ -86,10 +78,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - data-space-connector-5.0.8.tgz
-    version: 5.0.8
+    - data-space-connector-5.0.9.tgz
+    version: 5.0.9
   - apiVersion: v2
-    created: "2024-10-16T10:39:39.262803842+01:00"
+    created: "2024-10-16T11:08:09.910037913+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -168,7 +160,7 @@ entries:
     - data-space-connector-4.0.8.tgz
     version: 4.0.8
   - apiVersion: v2
-    created: "2024-10-16T10:39:39.239389256+01:00"
+    created: "2024-10-16T11:08:09.886959587+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -247,7 +239,7 @@ entries:
     - data-space-connector-3.4.1.tgz
     version: 3.4.1
   - apiVersion: v2
-    created: "2024-10-16T10:39:39.215460518+01:00"
+    created: "2024-10-16T11:08:09.863055571+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -325,4 +317,4 @@ entries:
     urls:
     - data-space-connector-3.4.0.tgz
     version: 3.4.0
-generated: "2024-10-16T10:39:39.187601254+01:00"
+generated: "2024-10-16T11:08:09.836050305+01:00"
