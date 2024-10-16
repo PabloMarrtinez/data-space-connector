@@ -27,7 +27,11 @@ issuer:
   deploymentEnabled: true
   name: issuer
   args: >
-    keytool -importcert -file /etc/tls/tls.crt -alias tls -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt && /app/ssikit.sh issuer
+    keytool -importcert -file /etc/issuer-tls/tls.crt -alias issuer-tls -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt && 
+    keytool -importcert -file /etc/wallet-tls/tls.crt -alias wallet-tls -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt && 
+    keytool -importcert -file /etc/verifier-tls/tls.crt -alias verifier-tls -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt && 
+    /app/ssikit.sh issuer
+
   envVars:
     - name: URI_ISSUER
       value: "ssikit-issuer"
@@ -37,14 +41,26 @@ issuer:
 
   ## Montaje de volúmenes
   volumeMounts:
-    - name: tls-cert
-      mountPath: "/etc/tls"
+    - name: issuer-cert
+      mountPath: "/etc/issuer-tls"
+      readOnly: true
+    - name: wallet-cert
+      mountPath: "/etc/wallet-tls"
+      readOnly: true
+    - name: verifier-cert
+      mountPath: "/etc/verifier-tls"
       readOnly: true
 
   volumes:
-    - name: tls-cert
+    - name: issuer-cert
       secret:
         secretName: issuer-cert
+    - name: wallet-cert
+      secret:
+        secretName: wallet-cert
+    - name: verifier-cert
+      secret:
+        secretName: verifier-cert
 
 ## Etiquetas y anotaciones adicionales (opcional)
 additionalLabels: {}
