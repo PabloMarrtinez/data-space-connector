@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   data-space-connector:
   - apiVersion: v2
-    created: "2024-10-16T11:29:53.886812088+01:00"
+    created: "2024-10-16T11:48:50.222839302+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -68,16 +68,16 @@ entries:
       name: issuer
       repository: file://./charts/issuer
       version: 0.1.0
-    - condition: verifierUmu.deploymentEnabled
-      name: verifierUmu
-      repository: file://./charts/verifierUmu
+    - condition: verifierumu.deploymentEnabled
+      name: verifierumu
+      repository: file://./charts/verifierumu
       version: 0.1.0
     - condition: wallet.deploymentEnabled
       name: wallet
       repository: file://./charts/wallet
       version: 0.1.0
     description: Helm chart to deploy the FIWARE Data Space Connector
-    digest: 08f6f4ecbb63714e17a28cbec9b6b8ecac74b8939adab45c03d32dbcaadb7bbc
+    digest: 59df95c1d5805b72ededcb6ec5dfb8bbf117bf10f25ce3add3486c38074e279a
     maintainers:
     - email: dennis.wendland@fiware.org
       name: Dennis Wendland
@@ -86,10 +86,10 @@ entries:
     name: data-space-connector
     type: application
     urls:
-    - data-space-connector-5.1.1.tgz
-    version: 5.1.1
+    - data-space-connector-5.1.2.tgz
+    version: 5.1.2
   - apiVersion: v2
-    created: "2024-10-16T11:29:53.863187094+01:00"
+    created: "2024-10-16T11:48:50.199109854+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -168,7 +168,7 @@ entries:
     - data-space-connector-4.0.8.tgz
     version: 4.0.8
   - apiVersion: v2
-    created: "2024-10-16T11:29:53.839634959+01:00"
+    created: "2024-10-16T11:48:50.175985367+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -247,7 +247,7 @@ entries:
     - data-space-connector-3.4.1.tgz
     version: 3.4.1
   - apiVersion: v2
-    created: "2024-10-16T11:29:53.815590341+01:00"
+    created: "2024-10-16T11:48:50.151590557+01:00"
     dependencies:
     - condition: keyrock.deploymentEnabled
       name: keyrock
@@ -325,4 +325,4 @@ entries:
     urls:
     - data-space-connector-3.4.0.tgz
     version: 3.4.0
-generated: "2024-10-16T11:29:53.787456396+01:00"
+generated: "2024-10-16T11:48:50.123609894+01:00"
