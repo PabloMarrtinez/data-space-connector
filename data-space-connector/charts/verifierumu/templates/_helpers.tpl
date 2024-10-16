@@ -1,10 +1,10 @@
 {{/* Expand the name of the chart. */}}
-{{- define "verifierUmu.name" -}}
+{{- define "verifierumu.name" -}}
 {{- default .Chart.Name .Values.nameOverride -}}
 {{- end -}}
 
 {{/* Create a default fully qualified app name. */}}
-{{- define "verifierUmu.fullname" -}}
+{{- define "verifierumu.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride -}}
 {{- else }}
@@ -14,22 +14,22 @@
 {{- end -}}
 
 {{/* Common labels */}}
-{{- define "verifierUmu.labels" -}}
-app.kubernetes.io/name: {{ include "verifierUmu.name" . }}
-helm.sh/chart: {{ include "verifierUmu.chart" . }}
+{{- define "verifierumu.labels" -}}
+app.kubernetes.io/name: {{ include "verifierumu.name" . }}
+helm.sh/chart: {{ include "verifierumu.chart" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end -}}
 
 {{/* Chart name and version */}}
-{{- define "verifierUmu.chart" -}}
+{{- define "verifierumu.chart" -}}
 {{ .Chart.Name }}-{{ .Chart.Version }}
 {{- end -}}
 
 {{/* ServiceAccount name */}}
-{{- define "verifierUmu.serviceAccountName" -}}
+{{- define "verifierumu.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{ default (include "verifierUmu.fullname" .) .Values.serviceAccount.name }}
+{{ default (include "verifierumu.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{ default "default" .Values.serviceAccount.name }}
 {{- end }}
