@@ -46,3 +46,19 @@ volumes:
     secret:
       secretName: issuer-cert
 
+## Etiquetas y anotaciones adicionales (opcional)
+additionalLabels: {}
+additionalAnnotations: {}
+
+## Configuraciones adicionales (opcional)
+serviceAccount:
+  create: false
+  name: ""
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+ingress:
+  enabled: true
+  annotations: {}
