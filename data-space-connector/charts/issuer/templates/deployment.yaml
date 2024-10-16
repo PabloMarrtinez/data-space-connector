@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "issuer.labels" . | nindent 4 }}
     component: issuer
-    {{- with .Values.additionalLabels }}
+
     {{- toYaml . | nindent 4 }}
     {{- end }}
   {{- if .Values.additionalAnnotations }}
@@ -30,15 +30,9 @@ spec:
         app.kubernetes.io/name: {{ include "issuer.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
         component: issuer
-        {{- with .Values.additionalLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
-      {{- if .Values.additionalAnnotations }}
-      annotations:
-        {{- toYaml .Values.additionalAnnotations | nindent 8 }}
-      {{- end }}
     spec:
-      serviceAccountName: {{ include "issuer.serviceAccountName" . }}
       containers:
         - name: issuer
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -71,14 +65,4 @@ spec:
       volumes:
         {{- toYaml .Values.volumes | nindent 8 }}
       {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.affinity }}
-      affinity:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.tolerations }}
-      tolerations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+
