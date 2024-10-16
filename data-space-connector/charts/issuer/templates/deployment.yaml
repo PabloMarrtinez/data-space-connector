@@ -2,16 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "issuer.fullname" . }}
-  labels:
-    {{- include "issuer.labels" . | nindent 4 }}
     component: issuer
-
-    {{- toYaml . | nindent 4 }}
-    {{- end }}
-  {{- if .Values.additionalAnnotations }}
-  annotations:
-    {{- toYaml .Values.additionalAnnotations | nindent 4 }}
-  {{- end }}
 spec:
   replicas: {{ .Values.replicaCount }}
   revisionHistoryLimit: {{ .Values.revisionHistoryLimit }}
@@ -64,5 +55,5 @@ spec:
             {{- end }}
       volumes:
         {{- toYaml .Values.volumes | nindent 8 }}
-      {{- with .Values.nodeSelector }}
+
 
