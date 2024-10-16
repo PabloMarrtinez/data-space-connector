@@ -1,0 +1,6 @@
+openssl req -nodes -x509 -sha256 -newkey rsa:4096 -keyout ./certs-ssi/issuer/issuer.key -out ./certs-ssi/issuer/issuer.crt -days 356 -subj "/C=ES/ST=Murcia/L=Spain/O=walt.id/OU=issuer/CN=umu-issuer" -addext "subjectAltName = DNS:issuer.tango.io" 
+openssl pkcs12 -export -in ./certs-ssi/issuer/issuer.crt -inkey ./certs-ssi/issuer/issuer.key -out ./certs-ssi/issuer/issuer.p12 -name issuer -passout pass: 
+openssl req -nodes -x509 -sha256 -newkey rsa:4096 -keyout ./certs-ssi/verifier/verifier.key -out ./certs-ssi/verifier/verifier.crt -days 356 -subj "/C=ES/ST=Murcia/L=Spain/O=walt.id/OU=verifier/CN=umu-verifier" -addext "subjectAltName = DNS:verifier.tango.io" 
+openssl pkcs12 -export -in ./certs-ssi/verifier/verifier.crt -inkey ./certs-ssi/verifier/verifier.key -out ./certs-ssi/verifier/verifier.p12 -name verifier -passout pass: 
+openssl req -nodes -x509 -sha256 -newkey rsa:4096 -keyout ./certs-ssi/webWallet/webWallet.key -out ./certs-ssi/webWallet/webWallet.crt -days 356 -subj "/C=ES/ST=Murcia/L=Spain/O=walt.id/OU=webWallet/CN=umu-webWallet" -addext "subjectAltName = DNS:wallet.tango.io" 
+openssl pkcs12 -export -in ./certs-ssi/webWallet/webWallet.crt -inkey ./certs-ssi/webWallet/webWallet.key -out ./certs-ssi/webWallet/webWallet.p12 -name webWallet -passout pass:
