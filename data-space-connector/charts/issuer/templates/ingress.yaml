@@ -14,7 +14,7 @@ spec:
               service:
                 name: issuer-service
                 port:
-                  number: 443
+                  number: {{ .Values.commonEnvVars.ISSUER_PORT_HTTP }}
   tls:
     - hosts:
         - issuer.tango.io

@@ -14,7 +14,7 @@ spec:
               service:
                 name: wallet-service
                 port:
-                  number: 443
+                  number: {{ .Values.commonEnvVars.WALLET_PORT_HTTP }}
   tls:
     - hosts:
         - wallet.tango.io
