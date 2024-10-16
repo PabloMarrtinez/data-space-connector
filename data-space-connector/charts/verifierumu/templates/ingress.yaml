@@ -16,7 +16,7 @@ spec:
               service:
                 name: verifierumu-service
                 port:
-                  number: {{ .Values.commonEnvVars.VERIFIER_PORT_HTTP }}
+                  number: {{ .Values.commonEnvVars.VERIFIER_PORT_HTTPS }}
   tls:
     - hosts:
         - verifier.tango.io
