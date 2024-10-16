@@ -10,9 +10,9 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - name: https
-      port: 443
-      targetPort: {{ .Values.commonEnvVars.ISSUER_PORT_HTTPS }}
+    - name: http
+      port: {{ .Values.commonEnvVars.ISSUER_PORT_HTTP }}
+      targetPort: {{ .Values.commonEnvVars.ISSUER_PORT_HTTP }}
   selector:
     app.kubernetes.io/name: {{ include "issuer.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

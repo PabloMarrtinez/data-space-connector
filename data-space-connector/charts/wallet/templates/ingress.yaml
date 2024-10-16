@@ -5,6 +5,7 @@ metadata:
   name: wallet-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
   rules:
     - host: wallet.tango.io
@@ -16,7 +17,7 @@ spec:
               service:
                 name: wallet-service
                 port:
-                  number: {{ .Values.commonEnvVars.WALLET_PORT_HTTPS }}
+                  number: {{ .Values.commonEnvVars.WALLET_PORT_HTTP }}
   tls:
     - hosts:
         - wallet.tango.io

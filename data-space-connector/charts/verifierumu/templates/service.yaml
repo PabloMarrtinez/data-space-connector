@@ -10,9 +10,9 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - name: https
-      port: 443
-      targetPort: {{ .Values.commonEnvVars.VERIFIER_PORT_HTTPS }}
+    - name: http
+      port: {{ .Values.commonEnvVars.VERIFIER_PORT_HTTP }}
+      targetPort: {{ .Values.commonEnvVars.VERIFIER_PORT_HTTP }}
   selector:
     app.kubernetes.io/name: {{ include "verifierumu.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

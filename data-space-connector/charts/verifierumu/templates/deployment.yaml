@@ -41,9 +41,9 @@ spec:
             {{- end }}
           ports:
             - containerPort: {{ .Values.commonEnvVars.VERIFIER_PORT_HTTP }}
-              name: verUmu-http
+              name: verumu-http
             - containerPort: {{ .Values.commonEnvVars.VERIFIER_PORT_HTTPS }}
-              name: verUmu-https
+              name: verumu-https
           volumeMounts:
             {{- range $mount := .Values.volumeMounts }}
             - name: {{ $mount.name }}
