@@ -60,6 +60,14 @@ dependencies:
   name: credentials-config-service
   repository: file://./charts/credentials-config-service
   version: 0.0.4
+- condition: issuer.deploymentEnabled
+  name: issuer
+  repository: file://./charts/issuer
+  version: 0.1.0
+- condition: verifierUmu.deploymentEnabled
+  name: verifierUmu
+  repository: file://./charts/verifierUmu
+  version: 0.1.0
 - condition: wallet.deploymentEnabled
   name: wallet
   repository: file://./charts/wallet
@@ -72,4 +80,4 @@ maintainers:
   name: Stefan Wiedemann
 name: data-space-connector
 type: application
-version: 4.0.8
+version: 5.0.0

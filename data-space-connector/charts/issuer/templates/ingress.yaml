@@ -1,26 +1,26 @@
-{{- if and .Values.ingress.enabled .Values.wallet.deploymentEnabled }}
+{{- if and .Values.ingress.enabled .Values.issuer.deploymentEnabled }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: wallet-ingress
+  name: issuer-ingress
   annotations:
     {{- range $key, $value := .Values.ingress.annotations }}
     {{ $key }}: {{ $value | quote }}
     {{- end }}
 spec:
   rules:
-    - host: wallet.tango.io
+    - host: issuer.tango.io
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: wallet-service
+                name: issuer-service
                 port:
                   number: 443
   tls:
     - hosts:
-        - wallet.tango.io
-      secretName: wallet-cert
+        - issuer.tango.io
+      secretName: issuer-cert
 {{- end }}

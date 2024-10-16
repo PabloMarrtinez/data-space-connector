@@ -22,6 +22,22 @@ applications:
     helm_values:
     - values.yaml
 
+  - name: issuer
+    enabled: true
+    source_path: applications/issuer
+    source_ref: *branch
+    destination: *destination
+    helm_values:
+    - values.yaml
+
+  - name: verifier
+    enabled: true
+    source_path: applications/verifierUmu
+    source_ref: *branch
+    destination: *destination
+    helm_values:
+    - values.yaml
+
   - name: wallet
     enabled: true
     source_path: applications/wallet
@@ -1031,16 +1047,9 @@ verifier:
         configEndpoint: http://ccs-credentials-config-service:8080/
 
 
-wallet:
-  deploymentEnabled: true
-  wallet:
-    ReplicaCount: 1
-    FABRIC_ENDPOINT: "192.168.49.1"
-    ISSUER_PORT: 32000
-    VERIFIER_PORT: 32001
-    WALLET_PORT: 32002
-    MODE: Default
-    LOCAL: true
+
+
+
 
 
 pdp:
@@ -1087,6 +1096,200 @@ pdp:
     - name: VERIFIER_ENDPOINT
       value: "/.well-known/jwks"
       
-ingress:
-  host: example.com
-  tlsSecret: my-tls-secret
+
+verifierUmu:
+  # Habilitar el despliegue del componente
+  deploymentEnabled: true
+
+  # Configuraciones específicas del componente
+  replicaCount: 1
+  revisionHistoryLimit: 10
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+
+  image:
+    repository: pablomarrtinez/wallet
+    tag: v4.1.4
+    pullPolicy: IfNotPresent
+
+  ## Variables de entorno comunes a todos los contenedores
+  commonEnvVars:
+    ISSUER_PORT_HTTP: "32100"
+    ISSUER_PORT_HTTPS: "32000"
+    VERIFIER_PORT_HTTP: "32101"
+    VERIFIER_PORT_HTTPS: "32001"
+    WALLET_PORT_HTTP: "32102"
+    WALLET_PORT_HTTPS: "32002"
+    MODE: "Default"
+    LOCAL: "true"
+    PEER_ENDPOINT: "peer0.org1.example.com"
+
+  args: >
+    keytool -importcert -file /etc/tls/tls.crt -alias tls -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt && /app/ssikit.sh verifier
+
+  envVars:
+    - name: URI_VERIFIER
+      value: "ssikit-verifier"
+
+  ## Montaje de volúmenes
+  volumeMounts:
+    - name: tls-cert
+      mountPath: "/etc/tls"
+      readOnly: true
+
+  volumes:
+    - name: tls-cert
+      secret:
+        secretName: verifier-cert
+
+  ## Etiquetas y anotaciones adicionales (opcional)
+  additionalLabels: {}
+  additionalAnnotations: {}
+
+  ## Configuraciones adicionales (opcional)
+  serviceAccount:
+    create: false
+    name: ""
+
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+
+  ingress:
+    enabled: true
+    annotations: {}
+
+
+wallet:
+  # Habilitar el despliegue del componente
+  deploymentEnabled: true
+
+  # Configuraciones específicas del componente
+  replicaCount: 1
+  revisionHistoryLimit: 10
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+
+  image:
+    repository: pablomarrtinez/wallet
+    tag: v4.1.4
+    pullPolicy: IfNotPresent
+
+  ## Variables de entorno comunes a todos los contenedores
+  commonEnvVars:
+    ISSUER_PORT_HTTP: "32100"
+    ISSUER_PORT_HTTPS: "32000"
+    VERIFIER_PORT_HTTP: "32101"
+    VERIFIER_PORT_HTTPS: "32001"
+    WALLET_PORT_HTTP: "32102"
+    WALLET_PORT_HTTPS: "32002"
+    MODE: "Default"
+    LOCAL: "true"
+    PEER_ENDPOINT: "peer0.org1.example.com"
+
+  args: >
+    keytool -importcert -file /etc/tls/tls.crt -alias tls -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt && /app/ssikit.sh wallet
+
+  envVars:
+    - name: URI_WALLET
+      value: "ssikit-wallet"
+
+  ## Montaje de volúmenes
+  volumeMounts:
+    - name: tls-cert
+      mountPath: "/etc/tls"
+      readOnly: true
+
+  volumes:
+    - name: tls-cert
+      secret:
+        secretName: wallet-cert
+
+  ## Etiquetas y anotaciones adicionales (opcional)
+  additionalLabels: {}
+  additionalAnnotations: {}
+
+  ## Configuraciones adicionales (opcional)
+  serviceAccount:
+    create: false
+    name: ""
+
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+
+  ingress:
+    enabled: true
+    annotations: {}
+
+
+issuer:
+  # Habilitar el despliegue del componente
+  deploymentEnabled: true
+
+  # Configuraciones específicas del componente
+  replicaCount: 1
+  revisionHistoryLimit: 10
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+
+  image:
+    repository: pablomarrtinez/wallet
+    tag: v4.1.4
+    pullPolicy: IfNotPresent
+
+  ## Variables de entorno comunes a todos los contenedores
+  commonEnvVars:
+    ISSUER_PORT_HTTP: "32100"
+    ISSUER_PORT_HTTPS: "32000"
+    VERIFIER_PORT_HTTP: "32101"
+    VERIFIER_PORT_HTTPS: "32001"
+    WALLET_PORT_HTTP: "32102"
+    WALLET_PORT_HTTPS: "32002"
+    MODE: "Default"
+    LOCAL: "true"
+    PEER_ENDPOINT: "peer0.org1.example.com"
+
+  args: >
+    keytool -importcert -file /etc/tls/tls.crt -alias tls -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt && /app/ssikit.sh issuer
+
+  envVars:
+    - name: URI_ISSUER
+      value: "ssikit-issuer"
+
+  ## Montaje de volúmenes
+  volumeMounts:
+    - name: tls-cert
+      mountPath: "/etc/tls"
+      readOnly: true
+
+  volumes:
+    - name: tls-cert
+      secret:
+        secretName: issuer-cert
+
+  ## Etiquetas y anotaciones adicionales (opcional)
+  additionalLabels: {}
+  additionalAnnotations: {}
+
+  ## Configuraciones adicionales (opcional)
+  serviceAccount:
+    create: false
+    name: ""
+
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+
+  ingress:
+    enabled: true
+    annotations: {}

@@ -1,26 +1,26 @@
-{{- if and .Values.ingress.enabled .Values.wallet.deploymentEnabled }}
+{{- if and .Values.ingress.enabled .Values.verifierUmu.deploymentEnabled }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: wallet-ingress
+  name: verifierUmu-ingress
   annotations:
     {{- range $key, $value := .Values.ingress.annotations }}
     {{ $key }}: {{ $value | quote }}
     {{- end }}
 spec:
   rules:
-    - host: wallet.tango.io
+    - host: verifier.tango.io
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: wallet-service
+                name: verifierUmu-service
                 port:
                   number: 443
   tls:
     - hosts:
-        - wallet.tango.io
-      secretName: wallet-cert
+        - verifier.tango.io
+      secretName: verifier-cert
 {{- end }}

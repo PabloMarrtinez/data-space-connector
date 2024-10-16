@@ -23,17 +23,17 @@ commonEnvVars:
   LOCAL: "true"
   PEER_ENDPOINT: "peer0.org1.example.com"
 
-wallet:
+verifierUmu:
   deploymentEnabled: true
-  name: wallet
+  name: verifierUmu
   args: >
-    keytool -importcert -file /etc/tls/tls.crt -alias tls -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt && /app/ssikit.sh wallet
+    keytool -importcert -file /etc/tls/tls.crt -alias tls -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt && /app/ssikit.sh verifier
   envVars:
-    - name: URI_WALLET
-      value: "ssikit-wallet"
+    - name: URI_VERIFIER
+      value: "ssikit-verifier"
   ports:
-    - 32102
-    - 32002
+    - 32101
+    - 32001
 
 ## Montaje de volúmenes
 volumeMounts:
@@ -44,7 +44,7 @@ volumeMounts:
 volumes:
   - name: tls-cert
     secret:
-      secretName: wallet-cert
+      secretName: verifier-cert
 
 ## Etiquetas y anotaciones adicionales (opcional)
 additionalLabels: {}

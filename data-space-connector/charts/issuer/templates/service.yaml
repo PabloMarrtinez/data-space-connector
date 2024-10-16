@@ -1,12 +1,12 @@
-{{- if .Values.wallet.deploymentEnabled }}
+{{- if .Values.issuer.deploymentEnabled }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: wallet-service
+  name: issuer-service
   labels:
-    app.kubernetes.io/name: {{ include "wallet.name" . }}
+    app.kubernetes.io/name: {{ include "issuer.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
-    component: wallet
+    component: issuer
     {{- with .Values.additionalLabels }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
@@ -15,9 +15,9 @@ spec:
   ports:
     - name: https
       port: 443
-      targetPort: {{ .Values.commonEnvVars.WALLET_PORT_HTTPS }}
+      targetPort: {{ .Values.commonEnvVars.ISSUER_PORT_HTTPS }}
   selector:
-    app.kubernetes.io/name: {{ include "wallet.name" . }}
+    app.kubernetes.io/name: {{ include "issuer.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
-    component: wallet
+    component: issuer
 {{- end }}

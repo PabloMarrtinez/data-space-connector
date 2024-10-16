@@ -1,12 +1,12 @@
-{{- if .Values.wallet.deploymentEnabled }}
+{{- if .Values.verifierUmu.deploymentEnabled }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: wallet-service
+  name: verifierUmu-service
   labels:
-    app.kubernetes.io/name: {{ include "wallet.name" . }}
+    app.kubernetes.io/name: {{ include "verifierUmu.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
-    component: wallet
+    component: verifierUmu
     {{- with .Values.additionalLabels }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
@@ -15,9 +15,9 @@ spec:
   ports:
     - name: https
       port: 443
-      targetPort: {{ .Values.commonEnvVars.WALLET_PORT_HTTPS }}
+      targetPort: {{ .Values.commonEnvVars.VERIFIER_PORT_HTTPS }}
   selector:
-    app.kubernetes.io/name: {{ include "wallet.name" . }}
+    app.kubernetes.io/name: {{ include "verifierUmu.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
-    component: wallet
+    component: verifierUmu
 {{- end }}
