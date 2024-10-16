@@ -3,6 +3,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: wallet-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
     - host: wallet.tango.io
