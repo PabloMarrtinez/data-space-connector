@@ -890,14 +890,14 @@ verifierumu:
         secretName: verifier-cert
 
 
-
-
-
-          
 pdp:
-  image: pablomarrtinez/pdp
-  imageTag: 0.0.1
+  image: harbor.tango.rid-intrasoft.eu/pdp-pep/pdp-pep
+  imageTag: latest
   pullPolicy: Always
+  namespace: ips
+
+  imagePullSecrets:
+    - name: harborsecrets1
 
   containerPort: 8088
   env:
@@ -932,11 +932,15 @@ pdp:
     - name: CT_EXPIRATION
       value: "2600000"
     - name: VERIFIER_IP
-      value: "ips-dsc-vcverifier"
+      value: "pep-pdp.tango.io"
     - name: VERIFIER_PORT
       value: "8082"
     - name: VERIFIER_ENDPOINT
       value: "/.well-known/jwks"
+      
+ingress:
+  host: example.com
+  tlsSecret: my-tls-secret
 
 keyrock:
   # Enable the deployment of application: keyrock
