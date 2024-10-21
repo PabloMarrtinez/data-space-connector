@@ -72,6 +72,10 @@ dependencies:
   name: wallet
   repository: file://./charts/wallet
   version: 0.1.0
+- condition: pdp.deploymentEnabled
+  name: pdp
+  repository: file://./charts/pdp
+  version: 0.1.0
 description: Helm chart to deploy the FIWARE Data Space Connector
 maintainers:
 - email: dennis.wendland@fiware.org
@@ -80,4 +84,4 @@ maintainers:
   name: Stefan Wiedemann
 name: data-space-connector
 type: application
-version: 5.2.1
+version: 6.0.0

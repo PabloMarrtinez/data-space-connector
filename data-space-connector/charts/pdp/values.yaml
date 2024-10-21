@@ -1,7 +1,11 @@
 pdp:
-  image: pablomarrtinez/pdp
-  imageTag: 0.0.1
+  image: harbor.tango.rid-intrasoft.eu/pdp-pep/pdp-pep
+  imageTag: latest
   pullPolicy: Always
+  namespace: ips
+
+  imagePullSecrets:
+    - name: harborsecrets1
 
   containerPort: 8088
   env:
